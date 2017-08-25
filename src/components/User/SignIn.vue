@@ -5,7 +5,7 @@
         <v-card>
           <v-card-text>
             <v-container>
-              <form>
+              <form @submit.prevent="onSignin">
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
@@ -41,9 +41,21 @@
         password: ''
       }
     },
+    computed: {
+      user () {
+        return this.$store.getters.user
+      }
+    },
+    watch: {
+      user (value) {
+        if (value !== null && value !== undefined) {
+          this.$router.push('/')
+        }
+      }
+    },
     methods: {
-      onSignup () {
-        // Vue
+      onSignin () {
+        this.$store.dispatch('signUserIn', {email: this.email, password: this.password})
       }
     }
   }
