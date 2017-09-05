@@ -3,7 +3,7 @@
     <v-layout row>
       <v-flex xs12 md6 offset-md3>
         <v-card>
-          <v-card-text>
+
             <v-container>
               <form @submit.prevent="onSignin">
                 <v-layout row>
@@ -26,7 +26,7 @@
                 </v-layout>
               </form>
             </v-container>
-          </v-card-text>
+          
         </v-card>
       </v-flex>
     </v-layout>
